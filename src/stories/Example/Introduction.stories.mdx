@@ -1,0 +1,2141 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Paleta kolorów" />
+
+<style>
+  {`
+    .colors {
+      display: flex;
+      flex-wrap: wrap;
+      flex: 1;
+      margin: 50px 0px;
+    }
+    .color-container {
+      width: 200px;
+      height: 300px;
+      border-radius: 20px;
+      background-color: #F8F8F8;
+      border: 1px solid #E8E8E8;
+      margin: 10px;
+    }
+    .color-wrapper {
+      background-color: #F47521;
+      border-radius: 20px;
+      width: 100%;
+      height: 50%;
+      position: relative;
+      display: flex;
+    }
+    .dark-version-title, .light-version-title {
+      
+      background-color: #F8F8F8;
+      border-radius: 20px;
+      padding: 5px 10px;
+      display: inline-block;
+      border: 1px solid #8C8C8E
+    }
+    .dark-version-title span, .light-version-title span {
+      color: #282727;
+      font-size: 14px;
+    }
+    .light-version-title {
+      position: absolute;
+      top: -8px;
+      left: -8px;
+    }
+    .dark-version-title {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+    }
+    .value-block {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%)
+    }
+    .value-block span {
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+    }
+    .dark-version {
+      height: 100%;
+      width: 50%;
+      border-top-right-radius: 20px;
+    }
+    .light-version {
+      height: 100%;
+      width: 50%;
+      border-top-left-radius: 20px;
+    }
+    .color-information {
+      padding: 10px;
+    }
+    .tuple {
+      display: flex;
+      flex-direction: column;
+      padding: 5px 0;
+    }
+    .key {
+      font-size: 14px;
+      color: #47474A
+    }
+    .value {
+      font-size: 12px;
+      color: #A3A3A5;
+    }
+  `}
+</style>
+
+# Paleta kolorów
+
+W tej sekcji zawarta jest cała paleta kolorów Alkoholove.
+
+# Spis treści
+
+- [Wstęp](#introduction)
+- [Rodzaje kolorow](#colors_kind)
+- [Wartości kolorów](#colors_value)
+  - [Primary](#colors_value)
+  - [Seconday](#colors_value)
+  - [Grey](#gre)
+  - [Red](#red)
+  - [Yellow](#yellow)
+  - [Green](#green)
+
+<a name="introduction" />
+
+# Wstęp
+
+W tej sekcji porzedstawione zostały wszystkie dostępne kolory zawarte w
+palecie kolorów Alkoholove. Wyjasnione zostało kiedy stosować dany kolor a
+kiedy lepszym pomysłem jest zastosowanie innego. Wszystkie kolory dostępne są
+w obiekcie `theme.palette`
+
+<a name="colors_kind" />
+
+# Rodzaje kolorow
+
+- **Primary** - należy używać w większości elementów, które chcemy uwydatnić.
+  Na każdym widoku powinnien znajdować się ten widok, ponieważ jest to jednocześnie
+  kolor marki. Stosowany jest w przyciskach Call To Action, logo, aktywne elementy.
+- **Secondary** - należy stosować w elementach drugorzędnych oraz w elementach w
+  których wiemy że użytkownik zwróci uwagę (wtedy nie trzeba stosować Primary kolor
+  ze względu na to iż wiemy ze użytkownik skupi swoją uwagę na danym elemencie)
+  Kolor stosowany również w linkach w tekście.
+- **Grey** - kolor stosowany do tekstów, tła, obramowań, cieni. Stosowany w większości
+  elementach.
+- **Red** - Kolor informujący o niepowodzeniu, lub w celu poinformowania użytkownika
+  o krytycznych elementach. Kolor powinnien być bardzo rzadko stosowany, właściwie
+  w jednym miejscu na danym widoku.
+- **Yellow** - kolor ostrzegawczy, stosowany w celu poinformowania użytkownika
+  o możliwych nieporządanych skutkach jakiegoś działania. Ten kolor upewnia nas,
+  że użytkownik przeczyta daną informację. Do informacji która jest mniej istotna
+  stosuj kolor Secondary. Tego koloru nie powinno być za dużo na jednym widoku.
+- **Green** - kolor informującu o powodzeniu danego działania jak i jako znacznik
+  informujący o nowościach itd. Wskazuje pozytywne aspekty.
+
+<a name="colors_value" />
+
+# Wartości kolorów
+
+Poniżej przedstawione zostały wartości powyżej podanych rodzajów kolorów.
+Wartości są z zakresu od 0 do 100. Czym większa wartość tym większa intensywność.
+Wartości 100 są bardzo rzadko stosowane na przykład do elementów aktywnych.
+Każda wartość posiada motyw Light i Dark.
+
+<a name="primary" />
+
+# Primary
+
+<div class="colors">
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F47521" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>100</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#fbc8a6" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Primary100</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F47521</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FBC8A6</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F58337" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>90</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#fabd94" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Primary90</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F58337</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#fabd94</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F6914D" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>80</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#f9b282" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Primary80</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F6914D</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#f9b282</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F79E64" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>70</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#f8a771" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Primary70</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F79E64</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#f8a771</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F8AC7A" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>60</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#f79c5f" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Primary60</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F8AC7A</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#f79c5f</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#FBC8A6" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>50</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#ac6636" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Primary50</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FBC8A6</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#ac6636</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#FBC8A6" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>40</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#94572e" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Primary40</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FBC8A6</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#94572e</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#FCD6BC" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>30</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#7b4927" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Primary30</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FCD6BC</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#7b4927</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#FDE3D3" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>20</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#623a1f" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Primary20</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FDE3D3</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#623a1f</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#FEF1E9" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>10</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#4a2b17" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Primary10</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FEF1E9</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#4a2b17</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a name="secondary" />
+
+# Secondary
+
+<div class="colors">
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#2B4069" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>100</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#C1C8D6" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Secondary100</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#2B4069</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#C1C8D6</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#304775" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>90</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#98A3BA" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Secondary90</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#304775</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#98A3BA</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#455983" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>80</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#8391AC" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Secondary80</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#455983</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#8391AC</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#596C91" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>70</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#596C91" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Secondary70</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#596C91</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#596C91</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#8391AC" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>60</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#4E6494" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Secondary60</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#8391AC</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#4E6494</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#98A3BA" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>50</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#375287" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Secondary50</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#98A3BA</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#375287</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#C1C8D6" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>40</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#324B7B" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Secondary40</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#C1C8D6</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#324B7B</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#E7EDFF" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>30</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#191919" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Secondary30</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#E7EDFF</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#191919</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#EFF3FF" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>20</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#151515" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Secondary20</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#EFF3FF</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#151515</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F2F5FF" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>10</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#131313" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Secondary10</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F2F5FF</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#131313</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a name="grey" />
+
+# Grey
+
+<div class="colors">
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#19191D" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>100</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#F8F8F8" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Grey100</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#19191D</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F8F8F8</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#282727" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>90</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#E8E8E8" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Grey90</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#282727</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#E8E8E8</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#47474A" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>80</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#D8D8D8" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Grey80</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#47474A</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#D8D8D8</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#5E5E61" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>70</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#D1D1D2" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Grey70</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#5E5E61</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#D1D1D2</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#757577" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>60</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#BABABB" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Grey60</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#757577</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#BABABB</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#8C8C8E" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>50</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#A3A3A5" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Grey50</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#8C8C8E</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#A3A3A5</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#A3A3A5" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>40</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#8C8C8E" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Grey40</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#A3A3A5</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#8C8C8E</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#BABABB" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>30</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#757577" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Grey30</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#BABABB</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#757577</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#D1D1D2" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>20</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#5E5E61" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Grey20</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#D1D1D2</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#5E5E61</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#D8D8D8" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>15</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#47474A" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Grey15</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#D8D8D8</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#47474A</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#E8E8E8" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>10</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#282727" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Grey10</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#E8E8E8</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#282727</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F8F8F8" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>5</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#19191D" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Grey5</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F8F8F8</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#19191D</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#FCFCFC" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>1</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#141416" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Grey1</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FCFCFC</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#141416</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a name="red" />
+
+# Red
+
+<div class="colors">
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#DC3C31" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>100</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#FAA19B" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Red100</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#DC3C31</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FAA19B</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F44336" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>90</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#F88E86" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Red90</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F44336</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F88E86</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F5564A" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>80</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#F77B72" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Red80</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F5564A</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F77B72</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F6695E" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>70</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#F77F76" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Red70</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F6695E</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F77F76</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F77B72" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>60</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#F66C62" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Red60</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F77B72</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F66C62</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F88E86" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>50</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#F5594E" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Red50</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F88E86</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F5594E</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#FAA19B" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>40</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#E05147" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Red40</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FAA19B</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#E05147</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#FBB4AF" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>30</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#680C05" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Red30</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FBB4AF</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#680C05</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#FCC7C3" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>20</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#540A04" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Red20</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FCC7C3</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#540A04</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#FDD9D7" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>10</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#400603" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Red10</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FDD9D7</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#400603</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a name="yellow" />
+
+# Yellow
+
+<div class="colors">
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#EED202" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>100</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#FDE10D" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Yellow100</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#EED202</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FDE10D</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F0D71B" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>90</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#F2DB33" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Yellow90</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F0D71B</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F2DB33</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F1DB35" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>80</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#F3DF4D" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Yellow80</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F1DB35</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F3DF4D</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F3E04E" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>70</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#F7E97F" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Yellow70</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F3E04E</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F7E97F</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F5E467" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>60</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#F7E97F" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Yellow60</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F5E467</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F7E97F</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F7E981" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>50</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#F7E981" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Yellow50</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F7E981</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F7E981</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#F8ED9A" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>40</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#F8ED9A" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Yellow40</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F8ED9A</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F8ED9A</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#FAF2B3" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>30</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#645907" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Yellow30</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FAF2B3</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#645907</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#FCF6CC" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>20</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#4B4304" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Yellow20</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FCF6CC</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#4B4304</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#FDFBE6" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>10</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#1A1A1A" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Yellow10</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FDFBE6</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#1A1A1A</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a name="green" />
+
+# Green
+
+<div class="colors">
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#5B9F5E" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>100</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#B6DAB7" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Green100</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#5B9F5E</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#B6DAB7</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#65B168" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>90</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#B6DAB7" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Green90</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#65B168</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#B6DAB7</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#74B977" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>80</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#B6DAB7" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Green80</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#74B977</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#B6DAB7</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#84C186" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>70</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#ADD6AE" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Green70</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#84C186</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#ADD6AE</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#93C895" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>60</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#A4D1A5" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Green60</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#93C895</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#A4D1A5</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#A3D0A4" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>50</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#94BC95" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Green50</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#A3D0A4</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#94BC95</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#B2D8B4" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>40</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#83A784" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Green40</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#B2D8B4</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#83A784</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#C1E0C3" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>30</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#739273" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Green30</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#C1E0C3</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#739273</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#D1E8D2" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>20</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#627D63" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Green20</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#D1E8D2</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#627D63</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#E0EFE1" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="value-block">
+        <span>10</span>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#526953" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.Green10</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#E0EFE1</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#526953</span>
+        <span class="value">Wersja dark</span>
+      </div>
+    </div>
+  </div>
+</div>

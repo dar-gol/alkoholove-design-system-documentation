@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  background-color: #f8f8f8;
+  height: 100vh;
+  font-family: Roboto;
+}
+:focus-visible {
+  outline-color: #e7b99b;
+}
