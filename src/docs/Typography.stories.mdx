@@ -1,0 +1,1233 @@
+import { Meta, Source } from "@storybook/addon-docs";
+import {
+  Heading1Large,
+  Heading1Small,
+  Heading2Small,
+  Heading2Large,
+  Heading3Small,
+  Heading3Large,
+  Heading4Small,
+  Heading4Large,
+  Heading5Small,
+  Heading5Large,
+  Heading6Small,
+  Heading6Large,
+  Body,
+  Caption,
+  Footer,
+} from "../styles/typography.styled";
+
+import { dedent } from "ts-dedent";
+
+<Meta title="Typografia" />
+
+<style>
+  {`
+      .h1LargeBold {
+        ${Heading1Large("bold")};
+        font-weight: 700;
+      }
+      .h1LargeMedium {
+        ${Heading1Large("bold")};
+        font-weight: 500;
+      }
+      .h1SmallBold {
+        ${Heading1Small("bold")};
+        font-weight: 700;
+      }
+      .h1SmallMedium {
+        ${Heading1Small("bold")};
+        font-weight: 500;
+      }
+
+      .h2LargeBold {
+        ${Heading2Large("bold")};
+        font-weight: 700;
+      }
+      .h2LargeMedium {
+        ${Heading2Large("bold")};
+        font-weight: 500;
+      }
+      .h2SmallBold {
+        ${Heading2Small("bold")};
+        font-weight: 700;
+      }
+      .h2SmallMedium {
+        ${Heading2Small("bold")};
+        font-weight: 500;
+      }
+
+      .h3LargeBold {
+        ${Heading3Large("bold")};
+        font-weight: 700;
+      }
+      .h3LargeMedium {
+        ${Heading3Large("bold")};
+        font-weight: 500;
+      }
+      .h3SmallBold {
+        ${Heading3Small("bold")};
+        font-weight: 700;
+      }
+      .h3SmallMedium {
+        ${Heading3Small("bold")};
+        font-weight: 500;
+      }
+
+      .h4LargeBold {
+        ${Heading4Large("bold")};
+        font-weight: 700;
+      }
+      .h4LargeMedium {
+        ${Heading4Large("bold")};
+        font-weight: 500;
+      }
+      .h4SmallBold {
+        ${Heading4Small("bold")};
+        font-weight: 700;
+      }
+      .h4SmallMedium {
+        ${Heading4Small("bold")};
+        font-weight: 500;
+      }
+
+      .h5LargeBold {
+        ${Heading5Large("bold")};
+        font-weight: 700;
+      }
+      .h5LargeMedium {
+        ${Heading5Large("bold")};
+        font-weight: 500;
+      }
+      .h5SmallBold {
+        ${Heading5Small("bold")};
+        font-weight: 700;
+      }
+      .h5SmallMedium {
+        ${Heading5Small("bold")};
+        font-weight: 500;
+      }
+
+      .h6LargeBold {
+        ${Heading6Large("bold")};
+        font-weight: 700;
+      }
+      .h6LargeMedium {
+        ${Heading6Large("bold")};
+        font-weight: 500;
+      }
+      .h6SmallBold {
+        ${Heading6Small("bold")};
+        font-weight: 700;
+      }
+      .h6SmallMedium {
+        ${Heading6Small("bold")};
+        font-weight: 500;
+      }
+
+      .body {
+        font-size: 14px;
+        line-height: 22px;
+        font-family: Roboto;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+      }
+
+      .caption {
+        font-size: 11px;
+        line-height: 18px;
+        font-family: Roboto;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+      }
+
+      .footer {
+        font-size: 8px;
+        line-height: 14px;
+        font-family: Roboto;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+      }
+    `}
+</style>
+
+# Typografia
+
+W tej sekcji zawarte są wszystkie możliwe wielkości fontów oraz inne właściwości.
+Zostało porzedstawione kiedy używać oraz kiedy nie powinliśmy stosować danego fontu.
+Zawarty został kod dzięki któremu w szybki sposób będziesz mógł dodać do swojego
+projektu typografie. Kod wykorzystuje bibliotekę styled-components.
+
+# Rodzaj czcionki - Roboto
+
+Zalecamy stosować font Roboto. Wszystkie przedstawione ustawienia takie jak
+wielkość czcionków, interlinie itd. są przystosowane pod tę czcionkę, więc jeśli
+zostanie wybrana inna czcionka możliwe, że te ustawienia nie będą miały sensu.
+Czcionka Roboto została wybrana ze względu na uniwersalność. Jest czcionką bezszeryfową,
+więc idealnie pasuję do krótkich tekstów kilku zdaniowych, nagłówków, tekstów
+informacyjnych, ostrzegawczych itd. Aby zainstalować font Roboto należy przejść
+na stonę: https://fonts.google.com/specimen/Roboto oraz wybrać grubości czcionki:
+100, 300, 400, 500, 700.
+
+Zawartość index.html:
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700"
+      rel="stylesheet"
+    />
+    ...
+  `}
+/>
+
+# Nagłówki
+
+Nagłówki stosowane są jako tytuły sekcji, artykułów oraz jako pod tytuły czy większe
+teksty pomocnicze.
+
+<!-- #region h1 -->
+
+# h1
+
+Należy stosować tylko jeden takiego typu nagłówek na danej stronie.
+Długość nagłówku powinna wynosić około: 20-70 znaków ze spacjami.
+Pamiętaj, aby treść nagłówka H1 była przede wszystkim treściwa.
+
+## Parametry
+
+### Large, Bold
+
+<span class="h1LargeBold">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia desktopowe.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h1 {
+      font-size: 48px;
+      font-family: Roboto;
+      font-weight: 700;
+      line-height: 56px;
+      letter-spacing: 0.3px;
+     }
+    ...
+  `}
+/>
+
+### Large, Medium
+
+<span class="h1LargeMedium">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia desktopowe.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h1 {
+      font-size: 48px;
+      font-family: Roboto;
+      font-weight: 500;
+      line-height: 56px;
+      letter-spacing: 0.3px;
+     }
+    ...
+  `}
+/>
+
+### Small, Bold
+
+<span class="h1SmallBold">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia mobilne.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h1 {
+      font-size: 40px;
+      font-family: Roboto;
+      font-weight: 700;
+      line-height: 48px;
+      letter-spacing: 0.3px;
+     }
+    ...
+  `}
+/>
+
+### Small, Medium
+
+<span class="h1SmallMedium">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia mobilne.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h1 {
+      font-size: 40px;
+      font-family: Roboto;
+      font-weight: 500;
+      line-height: 48px;
+      letter-spacing: 0.3px;
+     }
+    ...
+  `}
+/>
+
+## Kiedy stosować
+
+Stosować tylko i wyłącznie, żeby nakreślić co znajduje się na danej stronie jako
+tytuł całej strony. Powinnien być tylko jeden nagłówek na danej stronie.
+
+## Kiedy nie stosować
+
+Nie stosujemy jako kontent, podtytuł, tytuł danej sekcji lub artykułu.
+
+<!-- #endregion -->
+
+<!-- #region h2 -->
+
+# h2
+
+Dobra praktyka jest stosować nagłówki H2 aby uwydatnić najważniejsze artykuły lub sekcje.
+Może być kilka.
+
+## Parametry
+
+### Large, Bold
+
+<span class="h2LargeBold">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia desktopowe.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h2 {
+      font-size: 40px;
+      font-family: Roboto;
+      line-height: 48px;
+      letter-spacing: 0.3px;
+      font-weight: 700;
+     }
+    ...
+  `}
+/>
+
+### Large, Medium
+
+<span class="h2LargeMedium">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia desktopowe.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h2 {
+        font-size: 40px;
+        font-family: Roboto;
+        line-height: 48px;
+        letter-spacing: 0.3px;
+        font-weight: 500;
+     }
+    ...
+  `}
+/>
+
+### Small, Bold
+
+<span class="h2SmallBold">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia mobilne.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h2 {
+        font-size: 40px;
+        font-family: Roboto;
+        line-height: 48px;
+        letter-spacing: 0.3px;
+        font-weight: 700;
+     }
+    ...
+  `}
+/>
+
+### Small, Medium
+
+<span class="h2SmallMedium">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia mobilne.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h2 {
+        font-size: 40px;
+        font-family: Roboto;
+        font-weight: ,700,;
+        line-height: 48px;
+        letter-spacing: 0.3px;
+        font-weight: 500;
+     }
+    ...
+  `}
+/>
+
+## Kiedy stosować
+
+Stosować jako tytuły artykułów, sekcji. Może być kilka.
+
+## Kiedy nie stosować
+
+Nie stosujemy jako kontent oraz podtytuły.
+
+<!-- #endregion -->
+
+<!-- #region h3 -->
+
+# h3
+
+Nagłówki H3 stosujemy jako tytuły podsekcji. Nie stosujemy jako tytuły sekcji ani
+jako tytuł danej strony.
+
+## Parametry
+
+### Large, Bold
+
+<span class="h3LargeBold">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia desktopowe.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h3 {
+        font-size: 32px;
+        font-family: Roboto;
+        line-height: 40px;
+        letter-spacing: 0.3px;
+        font-weight: 700;
+     }
+    ...
+  `}
+/>
+
+### Large, Medium
+
+<span class="h3LargeMedium">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia desktopowe.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h3 {
+        font-size: 32px;
+        font-family: Roboto;
+        line-height: 40px;
+        letter-spacing: 0.3px;
+        font-weight: 500;
+     }
+    ...
+  `}
+/>
+
+### Small, Bold
+
+<span class="h3SmallBold">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia mobilne.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h3 {
+        font-size: 32px;
+        font-family: Roboto;
+        line-height: 40px;
+        letter-spacing: 0.3px;
+        font-weight: 700;
+     }
+    ...
+  `}
+/>
+
+### Small, Medium
+
+<span class="h3SmallMedium">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia mobilne.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h3 {
+        font-size: 32px;
+        font-family: Roboto;
+        line-height: 40px;
+        letter-spacing: 0.3px;
+        font-weight: 500;
+}
+     }
+    ...
+  `}
+/>
+
+## Kiedy stosować
+
+Stosować jako tytuły podsekcji.
+
+## Kiedy nie stosować
+
+Nie stosujemy jako tytuły sekcji, tytuł strony ani jako kontent.
+
+<!-- #endregion -->
+
+<!-- #region h4 -->
+
+# h4
+
+Nagłówki H4 stosujemy jako podtytuły informacyjne lub jako tytuł do kolejnej
+podsekcji po H3.
+
+## Parametry
+
+### Large, Bold
+
+<span class="h4LargeBold">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia desktopowe.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h4 {
+        font-size: 24px;
+        font-family: Roboto;
+        line-height: 32px;
+        letter-spacing: 0.3px;
+        font-weight: 700;
+     }
+    ...
+  `}
+/>
+
+### Large, Medium
+
+<span class="h4LargeMedium">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia desktopowe.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h4 {
+        font-size: 24px;
+        font-family: Roboto;
+        line-height: 32px;
+        letter-spacing: 0.3px;
+        font-weight: 500;
+     }
+    ...
+  `}
+/>
+
+### Small, Bold
+
+<span class="h4SmallBold">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia mobilne.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h4 {
+      font-size: 20px;
+      line-height: 24px;
+      font-family: Roboto;
+      letter-spacing: 0.3px;
+      font-weight: 700;
+     }
+    ...
+  `}
+/>
+
+### Small, Medium
+
+<span class="h4SmallMedium">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia mobilne.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h4 {
+        font-size: 20px;
+        line-height: 24px;
+        font-family: Roboto;
+        letter-spacing: 0.3px;
+        font-weight: 500;
+}
+     }
+    ...
+  `}
+/>
+
+## Kiedy stosować
+
+Stosować jako tytuły podsekcji.
+
+## Kiedy nie stosować
+
+Nie stosujemy jako tytuły sekcji, tytuł strony ani jako kontent.
+
+<!-- #endregion -->
+
+<!-- #region h5 -->
+
+# h5
+
+Nagłówki H5 stosujemy jako podtytuły informacyjne lub jako tekst do InfoBarów.
+
+## Parametry
+
+### Large, Bold
+
+<span class="h5LargeBold">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia desktopowe.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h5 {
+        font-size: 20px;
+        font-family: Roboto;
+        line-height: 24px;
+        letter-spacing: 0.3px;
+        font-weight: 700;
+     }
+    ...
+  `}
+/>
+
+### Large, Medium
+
+<span class="h5LargeMedium">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia desktopowe.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h5 {
+      font-size: 20px;
+      font-family: Roboto;
+      line-height: 24px;
+      letter-spacing: 0.3px;
+      font-weight: 500;
+     }
+    ...
+  `}
+/>
+
+### Small, Bold
+
+<span class="h5SmallBold">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia mobilne.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h5 {
+      font-size: 16px;
+      line-height: 25px;
+      font-family: Roboto;
+      letter-spacing: 0.3px;
+      font-weight: 700;
+     }
+    ...
+  `}
+/>
+
+### Small, Medium
+
+<span class="h5SmallMedium">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia mobilne.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h5 {
+        font-size: 16px;
+        line-height: 25px;
+        font-family: Roboto;
+        letter-spacing: 0.3px;
+        font-weight: 500;
+     }
+    ...
+  `}
+/>
+
+## Kiedy stosować
+
+Należy stosować jako teksty do Toastów lub Infobarów, lub jako podtytuły.
+
+## Kiedy nie stosować
+
+Nie stosujemy jako kontent ani jako tytuł.
+
+<!-- #endregion -->
+
+<!-- #region h6 -->
+
+# h6
+
+Nagłówki H6 można stosować jako element w tekście, który chcemy w jakiś sposób
+podkreślić.
+
+## Parametry
+
+### Large, Bold
+
+<span class="h6LargeBold">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia desktopowe.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h6 {
+      font-size: 16px;
+      font-family: Roboto;
+      line-height: 20px;
+      letter-spacing: 0.3px;
+      font-weight: 700;
+     }
+    ...
+  `}
+/>
+
+### Large, Medium
+
+<span class="h6LargeMedium">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia desktopowe.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h6 {
+        font-size: 16px;
+        font-family: Roboto;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        font-weight: 500;
+     }
+    ...
+  `}
+/>
+
+### Small, Bold
+
+<span class="h6SmallBold">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia mobilne.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h6 {
+      font-size: 14px;
+      line-height: 22px;
+      font-family: Roboto;
+      letter-spacing: 0.3px;
+      font-weight: 700;
+     }
+    ...
+  `}
+/>
+
+### Small, Medium
+
+<span class="h6SmallMedium">Lorem ipsum dolor, sit amet...</span>
+
+Stosowany na urządzenia mobilne.
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     h6 {
+      font-size: 14px;
+      line-height: 22px;
+      font-family: Roboto;
+      letter-spacing: 0.3px;
+      font-weight: 500;
+     }
+    ...
+  `}
+/>
+
+## Kiedy stosować
+
+Stosować w celu podkreślenia tekstu w kontencie.
+
+## Kiedy nie stosować
+
+Nie stosujemy jako kontent lub jako tytuły.
+
+<!-- #endregion -->
+
+<!-- #region Body -->
+
+# Body
+
+Body używamy jako kontent. Jest kilka wielkości oraz grubości do wyboru.
+
+## Parametry
+
+<span class="body">Lorem ipsum dolor, sit amet...</span>
+
+Wielkości: 16px, 14px, 12px <br />
+Grubość czcionki: 600, 500, 400
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     body {
+      font-size: 16px | 14px | 12px;
+      line-height: 22px;
+      font-family: Roboto;
+      font-weight: 600 | 500 | 400;
+      letter-spacing: 0.3px;
+     }
+    ...
+  `}
+/>
+
+## Kiedy stosować
+
+Stosować jako kontent, treść. Jeśli jest kilka zdań najlepiej zastosować Body.
+
+## Kiedy nie stosować
+
+Nie stosujemy jako tytuły, podtytuły.
+
+<!-- #endregion -->
+
+<!-- #region Caption -->
+
+# Caption
+
+Caption używamy jako krótkie napisy. Elementy które nie chcemy wyróżniać,
+ale muszą znaleźć się się na stronie. Krótka informacja np tooltip, lub
+inne krótkie teksty informacyjne.
+
+## Parametry
+
+<span class="caption">Lorem ipsum dolor, sit amet...</span>
+
+Wielkości: 11px, 10px <br />
+Grubość czcionki: 600, 500, 400
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     caption {
+      font-size: 11px | 10px;
+      line-height: 18px;
+      font-family: Roboto;
+      font-weight: 600 | 500 | 400;
+      letter-spacing: 0.3px;
+     }
+    ...
+  `}
+/>
+
+## Kiedy stosować
+
+Stosować jako krótkie teksty informacyjne. Nie wyróżniające się elementy.
+
+## Kiedy nie stosować
+
+Nie stosujemy jako tytuły, podtytuły ani jako normalny kontent, teksty.
+
+<!-- #endregion -->
+
+<!-- #region Footer -->
+
+# Footer
+
+Footer stosujemy jako małe elementy informacyjne. Stosujemy również w footerze.
+Jest to element podobny do Caption, z tą różnicą, że jest rozmiar jest mniejszy
+i stosujemy dla mniej istotnych elementów. Stosuje się bardzo rzadko.
+
+## Parametry
+
+<span class="footer">Lorem ipsum dolor, sit amet...</span>
+
+Wielkości: 8px <br />
+Grubość czcionki: 500, 400, 300
+
+<Source
+  language="html"
+  format={true}
+  code={`
+    ...
+     caption {
+      font-size: 8px;
+      line-height: 14px;
+      font-family: Roboto;
+      font-weight: 500 | 400 | 300;
+      letter-spacing: 0.3px;
+     }
+    ...
+  `}
+/>
+
+## Kiedy stosować
+
+Stosujemy jako w krótkich, mało istotnych elementach. Głównie stosowany w
+aplikacjach mobilnych.
+
+## Kiedy nie stosować
+
+Nie stosujemy jako tytuły, podtytuły ani jako normalny kontent, teksty.
+
+<!-- #endregion -->
+
+<!-- #region Styled-component -->
+
+# Jak korzystać z typografii?
+
+Ta sekcja poświęcona jest korzystania z typografii za pomocą styled-components.
+Więcej o styled-components możesz znaleźć: https://styled-components.com/.
+
+## Funkcję
+
+Poniższe funckję służą do generowania typografii.
+Jeśli chcemy Heading 1 large bold musimy wykorzystać funkcję: heading1Large('bold').
+Jeśli chcemy wykorzystać typografie body large medium wykorzystujemy fonkcję:
+Body('medium', 'large').
+
+<Source
+  language="typescript"
+  format={false}
+  code={dedent`
+     import {css} from 'styled-components';
+     type footerWeight = 'bold' | 'medium' | 'regular';
+     type headingWeight = 'bold' | 'medium';
+     type bodyWeight = 'bold' | 'medium' | 'regular';
+     type bodySize = 'large' | 'medium' | 'small';
+     type captionSize = 'large' | 'small';
+     type captionWeight = 'bold' | 'medium' | 'regular';
+     const setFooterWeight = (weight: footerWeight) => {
+        if (weight === 'bold') return '500';
+        if (weight === 'medium') return '400';
+        return '300';
+    };
+    const setCaptionSize = (size: captionSize) => {
+      if (size === 'large') return '11px';
+      return '10px';
+    };
+    const setCaptionWeight = (weight: captionWeight) => {
+      if (weight === 'bold') return '600';
+      if (weight === 'medium') return '500';
+      return '400';
+    };
+    const setBodyWeight = (weight: bodyWeight) => {
+      if (weight === 'bold') return '600';
+      if (weight === 'medium') return '500';
+      return '400';
+    };
+    const setBodySize = (size: bodySize) => {
+      if (size === 'large') return '16px';
+      if (size === 'medium') return '14px';
+      return '12px';
+    };
+    const setBodyLineHeight = (size: bodySize) => {
+      if (size === 'large') return '25px';
+      if (size === 'medium') return '22px';
+      return '20px';
+    };
+    const setHeadingWeight = (weight: headingWeight) => {
+      if (weight === 'bold') return '700';
+      return '500';
+    };
+    export const Heading1Large = (weight: headingWeight = 'bold') => css\`
+      font-size: 48px;
+      font-family: Roboto;
+      font-weight: \${setHeadingWeight(weight)};
+      line-height: 56px;
+      letter-spacing: 0.3px;
+    \`;
+    export const Heading2Large = (weight: headingWeight = 'bold') => css\`
+      font-size: 40px;
+      font-family: Roboto;
+      font-weight: \${setHeadingWeight(weight)};
+      line-height: 48px;
+      letter-spacing: 0.3px;
+    \`;
+    export const Heading3Large = (weight: headingWeight = 'bold') => css\`
+      font-size: 32px;
+      font-family: Roboto;
+      font-weight: \${setHeadingWeight(weight)};
+      line-height: 40px;
+      letter-spacing: 0.3px;
+    \`;
+    export const Heading4Large = (weight: headingWeight = 'bold') => css\`
+      font-size: 24px;
+      font-family: Roboto;
+      font-weight: \${setHeadingWeight(weight)};
+      line-height: 32px;
+      letter-spacing: 0.3px;
+    \`;
+    export const Heading5Large = (weight: headingWeight = 'bold') => css\`
+      font-size: 20px;
+      font-family: Roboto;
+      font-weight: \${setHeadingWeight(weight)};
+      line-height: 24px;
+      letter-spacing: 0.3px;
+    \`;
+    export const Heading6Large = (weight: headingWeight = 'bold') => css\`
+      font-size: 16px;
+      font-family: Roboto;
+      font-weight: \${setHeadingWeight(weight)};
+      line-height: 20px;
+      letter-spacing: 0.3px;
+    \`;
+    export const Heading1Small = (weight: headingWeight = 'bold') => css\`
+      font-size: 40px;
+      line-height: 48px;
+      font-family: Roboto;
+      font-weight: \${setHeadingWeight(weight)};
+      letter-spacing: 0.3px;
+    \`;
+    export const Heading2Small = (weight: headingWeight = 'bold') => css\`
+      font-size: 32px;
+      line-height: 40px;
+      font-family: Roboto;
+      font-weight: \${setHeadingWeight(weight)};
+      letter-spacing: 0.3px;
+    \`;
+    export const Heading3Small = (weight: headingWeight = 'bold') => css\`
+      font-size: 24px;
+      line-height: 32px;
+      font-family: Roboto;
+      font-weight: \${setHeadingWeight(weight)};
+      letter-spacing: 0.3px;
+    \`;
+    export const Heading4Small = (weight: headingWeight = 'bold') => css\`
+      font-size: 20px;
+      line-height: 24px;
+      font-family: Roboto;
+      font-weight: \${setHeadingWeight(weight)};
+      letter-spacing: 0.3px;
+    \`;
+    export const Heading5Small = (weight: headingWeight = 'bold') => css\`
+      font-size: 16px;
+      line-height: 25px;
+      font-family: Roboto;
+      font-weight: \${setHeadingWeight(weight)};
+      letter-spacing: 0.3px;
+    \`;
+    export const Heading6Small = (weight: headingWeight = 'bold') => css\`
+      font-size: 14px;
+      line-height: 22px;
+      font-family: Roboto;
+      font-weight: \${setHeadingWeight(weight)};
+      letter-spacing: 0.3px;
+    \`;
+    export const Body = (
+      weight: bodyWeight = 'bold',
+      size: bodySize = 'large',
+    ) => css\`
+      font-size: \${setBodySize(size)};
+      line-height: \${setBodyLineHeight(size)};
+      font-family: Roboto;
+      font-weight: \${setBodyWeight(weight)};
+      letter-spacing: 0.3px;
+    \`;
+    export const Caption = (
+      weight: captionWeight = 'bold',
+      size: captionSize = 'large',
+    ) => css\`
+      font-size: \${setCaptionSize(size)};
+      line-height: \${size === 'large' ? '18px' : '16px'};
+      font-family: Roboto;
+      font-weight: \${setCaptionWeight(weight)};
+      letter-spacing: 0.3px;
+    \`;
+    export const Footer = (weight: footerWeight = 'bold') => css\`
+      font-size: 8px;
+      line-height: 14px;
+      font-family: Roboto;
+      font-weight: \${setFooterWeight(weight)};
+      letter-spacing: 0.3px;
+    \`;
+`}
+/>
+
+Możesz wykorzystać te funkcje, żeby stworzyć poniższy komponent:
+
+<Source
+  language="typescript"
+  format={true}
+  code={`
+    interface IText {
+    margin?: string;
+    padding?: string;
+    width?: string;
+    isNoWrap?: boolean;
+    isCapitalize?: boolean;
+    textTransform?: string;
+    type?:
+      | 'h1'
+      | 'h2'
+      | 'h3'
+      | 'h4'
+      | 'h5'
+      | 'h6'
+      | 'body'
+      | 'caption'
+      | 'footer';
+    weight?: 'bold' | 'medium' | 'regular';
+    size?: 'large' | 'medium' | 'small';
+    color?: string;
+    textAlign?: string;
+    textDecoration?: string;
+    zIndex?: number;
+  }
+  const getFontStyle = (
+    type: IText['type'],
+    weight: IText['weight'],
+    size: IText['size'],
+  ) => {
+    if (type === 'body') return Body(weight, size);
+    if (type === 'caption')
+      return Caption(weight, size === 'medium' ? undefined : size);
+    if (type === 'footer') return Footer(weight);
+    if (type === 'h1' && size === 'large')
+      return Heading1Large(weight === 'regular' ? undefined : weight);
+    if (type === 'h1' && size === 'small')
+      return Heading1Small(weight === 'regular' ? undefined : weight);
+    if (type === 'h2' && size === 'large')
+      return Heading2Large(weight === 'regular' ? undefined : weight);
+    if (type === 'h2' && size === 'small')
+      return Heading2Small(weight === 'regular' ? undefined : weight);
+    if (type === 'h3' && size === 'large')
+      return Heading3Large(weight === 'regular' ? undefined : weight);
+    if (type === 'h3' && size === 'small')
+      return Heading3Small(weight === 'regular' ? undefined : weight);
+    if (type === 'h4' && size === 'large')
+      return Heading4Large(weight === 'regular' ? undefined : weight);
+    if (type === 'h4' && size === 'small')
+      return Heading4Small(weight === 'regular' ? undefined : weight);
+    if (type === 'h5' && size === 'large')
+      return Heading5Large(weight === 'regular' ? undefined : weight);
+    if (type === 'h5' && size === 'small')
+      return Heading5Small(weight === 'regular' ? undefined : weight);
+    if (type === 'h6' && size === 'large')
+      return Heading6Large(weight === 'regular' ? undefined : weight);
+    if (type === 'h6' && size === 'small')
+      return Heading6Small(weight === 'regular' ? undefined : weight);
+    return '';
+  };
+  export const Text = styled.p<IText>\`
+    \${({type, weight, size}) => (type ? getFontStyle(type, weight, size) : '')}
+    white-space: \${({isNoWrap = false}) => (isNoWrap ? 'nowrap' : 'wrap')};
+    text-transform: \${({textTransform}) => textTransform || 'none'};
+    margin: \${({margin}) => margin || '0'};
+    padding: \${({padding}) => padding || '0'};
+    width: \${({width}) => width || 'unset'};
+    color: \${({color, theme}) => color || theme.palette.Grey90};
+    text-decoration: \${({textDecoration}) => textDecoration || 'none'};
+    text-align: \${({textAlign}) => textAlign || 'left'};
+    z-index: \${({zIndex}) => zIndex || 0};
+    &::first-letter {
+      text-transform: \${({isCapitalize = false}) =>
+        isCapitalize ? 'capitalize' : 'none'};
+    }
+  \`;
+`}
+/>
+
+Sposób wykorzystania:
+
+<Source
+  language="typescript"
+  format={true}
+  code={`
+    <Text
+        type="h1"
+        weight="bold"
+        size="large"
+        textAlign="center"
+        margin="0 0 50px 0">
+        Skorzystaj z pełni możliwości
+    </Text>
+  `}
+/>
+
+<!-- #endregion -->
