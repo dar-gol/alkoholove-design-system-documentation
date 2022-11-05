@@ -1,4 +1,6 @@
-import { Meta } from "@storybook/addon-docs";
+import { Meta, Source } from "@storybook/addon-docs";
+
+import { dedent } from "ts-dedent";
 
 <Meta title="Paleta kolorów" />
 
@@ -12,7 +14,7 @@ import { Meta } from "@storybook/addon-docs";
     }
     .color-container {
       width: 200px;
-      height: 300px;
+      height: 400px;
       border-radius: 20px;
       background-color: #F8F8F8;
       border: 1px solid #E8E8E8;
@@ -22,37 +24,54 @@ import { Meta } from "@storybook/addon-docs";
       background-color: #F47521;
       border-radius: 20px;
       width: 100%;
-      height: 50%;
+      height: 150px;
       position: relative;
       display: flex;
     }
-    .dark-version-title, .light-version-title {
-      
+    .dark-version-title, 
+    .light-version-title, 
+    .light-contrast-version-title,
+    .dark-contrast-version-title { 
       background-color: #F8F8F8;
       border-radius: 20px;
       padding: 5px 10px;
       display: inline-block;
       border: 1px solid #8C8C8E
     }
-    .dark-version-title span, .light-version-title span {
+    .dark-version-title span, 
+    .light-version-title span,
+    .light-contrast-version-title span,
+    .dark-contrast-version-title span {
       color: #282727;
-      font-size: 14px;
+      font-size: 12px;
+      white-space: nowrap;
     }
     .light-version-title {
       position: absolute;
       top: -8px;
-      left: -8px;
+      left: -10px;
     }
     .dark-version-title {
       position: absolute;
       top: -8px;
-      right: -8px;
+      right: -10px;
+    }
+    .light-contrast-version-title {
+      position: absolute;
+      bottom: -8px;
+      left: -10px;
+    }
+    .dark-contrast-version-title {
+      position: absolute;
+      bottom: -8px;
+      right: -10px;
     }
     .value-block {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%,-50%)
+      transform: translate(-50%,-50%);
+      z-index: 1;
     }
     .value-block span {
       font-size: 32px;
@@ -60,14 +79,36 @@ import { Meta } from "@storybook/addon-docs";
       color: white;
     }
     .dark-version {
-      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 50%;
       width: 50%;
       border-top-right-radius: 20px;
     }
     .light-version {
-      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 50%;
       width: 50%;
       border-top-left-radius: 20px;
+    }
+    .dark-contrast-version {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 50%;
+      width: 50%;
+      border-bottom-right-radius: 20px;
+    }
+    .light-contrast-version {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: 50%;
+      width: 50%;
+      border-bottom-left-radius: 20px;
     }
     .color-information {
       padding: 10px;
@@ -99,10 +140,14 @@ W tej sekcji zawarta jest cała paleta kolorów Alkoholove.
 - [Wartości kolorów](#colors_value)
   - [Primary](#colors_value)
   - [Seconday](#colors_value)
-  - [Grey](#gre)
+  - [White](#white)
+  - [Grey](#grey)
   - [Red](#red)
   - [Yellow](#yellow)
   - [Green](#green)
+- [Jak korzystać z paczki kolorów](#how_to_use)
+  - [Objekt kolorów](#colors_object)
+  - [Objekt Theme](#theme_object)
 
 <a name="introduction" />
 
@@ -165,6 +210,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#A84402" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#F6DDCC" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -178,6 +236,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#FBC8A6</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#A84402</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F6DDCC</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -196,6 +262,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#BD4D02" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#F2CCB3" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -209,6 +288,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#fabd94</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#BD4D02</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F2CCB3</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -227,6 +314,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#D25502" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#EDBB9A" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -240,6 +340,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#f9b282</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#D25502</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#EDBB9A</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -258,6 +366,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#D7661B" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#E9AA81" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -271,6 +392,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#f8a771</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#D7661B</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#E9AA81</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -289,6 +418,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#DB7735" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#E49967" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -302,6 +444,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#f79c5f</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#DB7735</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#E49967</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -320,6 +470,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#E49967" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#DB7735" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -333,6 +496,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#ac6636</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#E49967</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#DB7735</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -351,6 +522,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#E9AA81" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#D7661B" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -364,6 +548,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#94572e</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#E9AA81</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#D7661B</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -382,6 +574,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#EDBB9A" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#D25502" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -395,6 +600,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#7b4927</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#EDBB9A</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#D25502</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -413,6 +626,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#F2CCB3" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#BD4D02" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -426,6 +652,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#623a1f</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F2CCB3</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#BD4D02</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -444,6 +678,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#F6DDCC" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#A84402" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -457,6 +704,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#4a2b17</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F6DDCC</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#A84402</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -482,6 +737,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#071530" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#E6E8EB" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -495,6 +763,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#C1C8D6</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#071530</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#E6E8EB</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -513,6 +789,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#081735" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#CED1D7" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -526,6 +815,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#98A3BA</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#081735</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#CED1D7</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -544,6 +841,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#212E49" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#B5B9C2" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -557,6 +867,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#8391AC</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#212E49</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#B5B9C2</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -575,6 +893,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#39455D" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#9CA2AE" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -588,6 +919,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#596C91</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#39455D</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#9CA2AE</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -606,6 +945,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#525D72" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#848B9A" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -619,6 +971,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#4E6494</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#525D72</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#848B9A</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -637,6 +997,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#848B9A" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#525D72" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -650,6 +1023,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#375287</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#848B9A</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#525D72</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -668,6 +1049,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#9CA2AE" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#39455D" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -681,6 +1075,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#324B7B</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#9CA2AE</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#39455D</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -699,6 +1101,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#B5B9C2" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#212E49" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -712,6 +1127,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#191919</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#B5B9C2</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#212E49</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -730,6 +1153,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#CED1D7" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#081735" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -743,6 +1179,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#151515</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#CED1D7</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#081735</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -761,6 +1205,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#E6E8EB" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#071530" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -774,6 +1231,67 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#131313</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#E6E8EB</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#071530</span>
+        <span class="value">Wysoki kontrast: Dark</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a name="white" />
+
+# White
+
+<div class="colors">
+  <div class="color-container">
+    <div class="color-wrapper">
+      <div class="light-version" style={{ backgroundColor: "#FFF" }}>
+        <div class="light-version-title">
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="dark-version" style={{ backgroundColor: "#0D0D0D" }}>
+        <div class="dark-version-title">
+          <span>Dark</span>
+        </div>
+      </div>
+      <div class="light-contrast-version" style={{ backgroundColor: "#FFF" }}>
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#0D0D0D" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-information">
+      <div class="tuple">
+        <span class="key">theme.palette.White</span>
+        <span class="value">Nazwa obiektu</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FFF</span>
+        <span class="value">Wersja light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#0D0D0D</span>
+        <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FFF</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#0D0D0D</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -799,6 +1317,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#141416" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#FCFCFC" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -812,6 +1343,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#F8F8F8</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#141416</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FCFCFC</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -830,6 +1369,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#141416" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#FCFCFC" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -843,6 +1395,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#E8E8E8</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#141416</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FCFCFC</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -861,6 +1421,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#19191D" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#F8F8F8" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -874,6 +1447,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#D8D8D8</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#19191D</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F8F8F8</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -892,6 +1473,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#5E5E61" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#F8F8F8" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -905,6 +1499,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#D1D1D2</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#5E5E61</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F8F8F8</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -923,6 +1525,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#5E5E61" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#D1D1D2" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -936,6 +1551,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#BABABB</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#5E5E61</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#D1D1D2</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -954,6 +1577,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#5E5E61" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#D1D1D2" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -967,6 +1603,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#A3A3A5</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#5E5E61</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#D1D1D2</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -985,6 +1629,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#A3A3A5" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#A3A3A5" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -998,6 +1655,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#8C8C8E</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#A3A3A5</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#A3A3A5</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1016,6 +1681,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#A3A3A5" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#A3A3A5" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1029,6 +1707,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#757577</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#A3A3A5</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#A3A3A5</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1047,6 +1733,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#D1D1D2" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#5E5E61" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1060,6 +1759,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#5E5E61</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#D1D1D2</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#5E5E61</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1078,6 +1785,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#D1D1D2" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#5E5E61" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1091,6 +1811,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#47474A</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#D1D1D2</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#5E5E61</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1109,6 +1837,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#D1D1D2" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#5E5E61" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1122,6 +1863,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#282727</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#D1D1D2</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#5E5E61</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1140,6 +1889,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#FCFCFC" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#141416" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1153,6 +1915,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#19191D</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FCFCFC</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#141416</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1171,6 +1941,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#FCFCFC" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#141416" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1184,6 +1967,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#141416</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FCFCFC</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#141416</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1209,6 +2000,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#DC3C31" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#FAA19B" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1222,6 +2026,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#FAA19B</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#DC3C31</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FAA19B</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1240,6 +2052,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#F44336" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#F88E86" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1253,6 +2078,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#F88E86</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F44336</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F88E86</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1271,6 +2104,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#F5564A" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#F77B72" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1284,6 +2130,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#F77B72</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F5564A</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F77B72</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1302,6 +2156,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#F6695E" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#F77F76" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1315,6 +2182,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#F77F76</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F6695E</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F77F76</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1333,6 +2208,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#F77B72" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#F66C62" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1346,6 +2234,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#F66C62</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F77B72</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F66C62</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1364,6 +2260,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#F88E86" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#F5594E" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1377,6 +2286,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#F5594E</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F88E86</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F5594E</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1395,6 +2312,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#FAA19B" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#E05147" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1408,6 +2338,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#E05147</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FAA19B</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#E05147</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1426,6 +2364,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#FBB4AF" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#680C05" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1439,6 +2390,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#680C05</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FBB4AF</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#680C05</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1457,6 +2416,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#FCC7C3" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#540A04" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1470,6 +2442,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#540A04</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FCC7C3</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#540A04</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1488,6 +2468,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#FDD9D7" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#400603" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1501,6 +2494,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#400603</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FDD9D7</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#400603</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1526,6 +2527,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#EED202" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#FDE10D" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1539,6 +2553,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#FDE10D</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#EED202</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FDE10D</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1557,6 +2579,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#F0D71B" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#F2DB33" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1570,6 +2605,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#F2DB33</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F0D71B</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F2DB33</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1588,6 +2631,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#F1DB35" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#F3DF4D" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1601,6 +2657,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#F3DF4D</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F1DB35</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F3DF4D</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1619,6 +2683,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#F3E04E" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#F7E97F" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1632,6 +2709,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#F7E97F</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F3E04E</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F7E97F</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1650,6 +2735,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#F5E467" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#F7E97F" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1663,6 +2761,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#F7E97F</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F5E467</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F7E97F</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1681,6 +2787,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#F7E981" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#F7E981" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1694,6 +2813,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#F7E981</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F7E981</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F7E981</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1712,6 +2839,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#F8ED9A" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#F8ED9A" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1725,6 +2865,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#F8ED9A</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F8ED9A</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#F8ED9A</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1743,6 +2891,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#FAF2B3" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#645907" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1756,6 +2917,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#645907</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FAF2B3</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#645907</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1774,6 +2943,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#FCF6CC" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#4B4304" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1787,6 +2969,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#4B4304</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FCF6CC</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#4B4304</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1805,6 +2995,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#FDFBE6" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#1A1A1A" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1818,6 +3021,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#1A1A1A</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#FDFBE6</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#1A1A1A</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1843,6 +3054,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#5B9F5E" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#B6DAB7" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1856,6 +3080,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#B6DAB7</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#5B9F5E</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#B6DAB7</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1874,6 +3106,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#65B168" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#B6DAB7" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1887,6 +3132,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#B6DAB7</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#65B168</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#B6DAB7</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1905,6 +3158,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#74B977" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#B6DAB7" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1918,6 +3184,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#B6DAB7</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#74B977</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#B6DAB7</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1936,6 +3210,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#84C186" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#ADD6AE" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1949,6 +3236,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#ADD6AE</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#84C186</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#ADD6AE</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1967,6 +3262,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#93C895" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#A4D1A5" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -1980,6 +3288,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#A4D1A5</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#93C895</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#A4D1A5</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -1998,6 +3314,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#A3D0A4" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#94BC95" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -2011,6 +3340,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#94BC95</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#A3D0A4</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#94BC95</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -2029,6 +3366,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#B2D8B4" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#83A784" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -2042,6 +3392,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#83A784</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#B2D8B4</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#83A784</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -2060,6 +3418,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#C1E0C3" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#739273" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -2073,6 +3444,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#739273</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#C1E0C3</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#739273</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -2091,6 +3470,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#D1E8D2" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#627D63" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -2104,6 +3496,14 @@ Każda wartość posiada motyw Light i Dark.
       <div class="tuple">
         <span class="key">#627D63</span>
         <span class="value">Wersja dark</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#D1E8D2</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#627D63</span>
+        <span class="value">Wysoki kontrast: Dark</span>
       </div>
     </div>
   </div>
@@ -2122,6 +3522,19 @@ Każda wartość posiada motyw Light i Dark.
           <span>Dark</span>
         </div>
       </div>
+      <div
+        class="light-contrast-version"
+        style={{ backgroundColor: "#E0EFE1" }}
+      >
+        <div class="light-contrast-version-title">
+          <span>Light contrast</span>
+        </div>
+      </div>
+      <div class="dark-contrast-version" style={{ backgroundColor: "#526953" }}>
+        <div class="dark-contrast-version-title">
+          <span>Dark Contrast</span>
+        </div>
+      </div>
     </div>
     <div class="color-information">
       <div class="tuple">
@@ -2136,6 +3549,557 @@ Każda wartość posiada motyw Light i Dark.
         <span class="key">#526953</span>
         <span class="value">Wersja dark</span>
       </div>
+      <div class="tuple">
+        <span class="key">#E0EFE1</span>
+        <span class="value">Wysoki kontrast: Light</span>
+      </div>
+      <div class="tuple">
+        <span class="key">#526953</span>
+        <span class="value">Wysoki kontrast: Dark</span>
+      </div>
     </div>
   </div>
 </div>
+
+<a name="how_to_use" />
+
+# Jak korzystać z paczki kolorów?
+
+Ta sekcja poświęcona jest korzystania z kolorów za pomocą styled-components.
+Więcej o styled-components możesz znaleźć: https://styled-components.com/.
+
+<a name="colors_object" />
+
+## Obiekt kolorów
+
+Należy utworzyć obiekt kolorów w celu dodania go do theme.
+
+<Source
+  language="js"
+  format={true}
+  code={`
+    const Primary = {
+      light: {
+        Primary100: "#F47521",
+        Primary90: "#F58337",
+        Primary80: "#F6914D",
+        Primary70: "#F79E64",
+        Primary60: "#F8AC7A",
+        Primary50: "#FBC8A6",
+        Primary40: "#FBC8A6",
+        Primary30: "#FCD6BC",
+        Primary20: "#FDE3D3",
+        Primary10: "#FEF1E9",
+      },
+      highContrastLight: {
+        Primary100: "#A84402",
+        Primary90: "#BD4D02",
+        Primary80: "#D25502",
+        Primary70: "#D7661B",
+        Primary60: "#DB7735",
+        Primary50: "#E49967",
+        Primary40: "#E9AA81",
+        Primary30: "#EDBB9A",
+        Primary20: "#F2CCB3",
+        Primary10: "#F6DDCC",
+      },
+      dark: {
+        Primary100: "#fbc8a6",
+        Primary90: "#fabd94",
+        Primary80: "#f9b282",
+        Primary70: "#f8a771",
+        Primary60: "#f79c5f",
+        Primary50: "#ac6636",
+        Primary40: "#94572e",
+        Primary30: "#7b4927",
+        Primary20: "#623a1f",
+        Primary10: "#4a2b17",
+      },
+      highContrastDark: {
+        Primary100: "#F6DDCC",
+        Primary90: "#F2CCB3",
+        Primary80: "#EDBB9A",
+        Primary70: "#E9AA81",
+        Primary60: "#E49967",
+        Primary50: "#DB7735",
+        Primary40: "#D7661B",
+        Primary30: "#D25502",
+        Primary20: "#BD4D02",
+        Primary10: "#A84402",
+      },
+    };
+    const Secondary = {
+    light: {
+    Secondary100: "#2B4069",
+    Secondary90: "#304775",
+    Secondary80: "#455983",
+    Secondary70: "#596C91",
+    Secondary60: "#8391AC",
+    Secondary50: "#98A3BA",
+    Secondary40: "#C1C8D6",
+    Secondary30: "#E7EDFF",
+    Secondary20: "#EFF3FF",
+    Secondary10: "#F2F5FF",
+    },
+    highContrastLight: {
+    Secondary100: "#071530",
+    Secondary90: "#081735",
+    Secondary80: "#212E49",
+    Secondary70: "#39455D",
+    Secondary60: "#525D72",
+    Secondary50: "#848B9A",
+    Secondary40: "#9CA2AE",
+    Secondary30: "#B5B9C2",
+    Secondary20: "#CED1D7",
+    Secondary10: "#E6E8EB",
+    },
+    dark: {
+    Secondary100: "#C1C8D6",
+    Secondary90: "#98A3BA",
+    Secondary80: "#8391AC",
+    Secondary70: "#596C91",
+    Secondary60: "#4E6494",
+    Secondary50: "#375287",
+    Secondary40: "#324B7B",
+    Secondary30: "#191919",
+    Secondary20: "#151515",
+    Secondary10: "#131313",
+    },
+    highContrastDark: {
+    Secondary100: "#E6E8EB",
+    Secondary90: "#CED1D7",
+    Secondary80: "#B5B9C2",
+    Secondary70: "#9CA2AE",
+    Secondary60: "#848B9A",
+    Secondary50: "#525D72",
+    Secondary40: "#39455D",
+    Secondary30: "#212E49",
+    Secondary20: "#081735",
+    Secondary10: "#071530",
+    },
+    };
+    const Green = {
+    light: {
+    Green100: "#5B9F5E",
+    Green90: "#65B168",
+    Green80: "#74B977",
+    Green70: "#84C186",
+    Green60: "#93C895",
+    Green50: "#A3D0A4",
+    Green40: "#B2D8B4",
+    Green30: "#C1E0C3",
+    Green20: "#D1E8D2",
+    Green10: "#E0EFE1",
+    },
+    highContrastLight: {
+    Green100: "#5B9F5E",
+    Green90: "#65B168",
+    Green80: "#74B977",
+    Green70: "#84C186",
+    Green60: "#93C895",
+    Green50: "#A3D0A4",
+    Green40: "#B2D8B4",
+    Green30: "#C1E0C3",
+    Green20: "#D1E8D2",
+    Green10: "#E0EFE1",
+    },
+    dark: {
+    Green100: "#B6DAB7",
+    Green90: "#B6DAB7",
+    Green80: "#B6DAB7",
+    Green70: "#ADD6AE",
+    Green60: "#A4D1A5",
+    Green50: "#94BC95",
+    Green40: "#83A784",
+    Green30: "#739273",
+    Green20: "#627D63",
+    Green10: "#526953",
+    },
+    highContrastDark: {
+    Green100: "#B6DAB7",
+    Green90: "#B6DAB7",
+    Green80: "#B6DAB7",
+    Green70: "#ADD6AE",
+    Green60: "#A4D1A5",
+    Green50: "#94BC95",
+    Green40: "#83A784",
+    Green30: "#739273",
+    Green20: "#627D63",
+    Green10: "#526953",
+    },
+    };
+    const Yellow = {
+    light: {
+    Yellow100: "#EED202",
+    Yellow90: "#F0D71B",
+    Yellow80: "#F1DB35",
+    Yellow70: "#F3E04E",
+    Yellow60: "#F5E467",
+    Yellow50: "#F7E981",
+    Yellow40: "#F8ED9A",
+    Yellow30: "#FAF2B3",
+    Yellow20: "#FCF6CC",
+    Yellow10: "#FDFBE6",
+    },
+    highContrastLight: {
+    Yellow100: "#EED202",
+    Yellow90: "#F0D71B",
+    Yellow80: "#F1DB35",
+    Yellow70: "#F3E04E",
+    Yellow60: "#F5E467",
+    Yellow50: "#F7E981",
+    Yellow40: "#F8ED9A",
+    Yellow30: "#FAF2B3",
+    Yellow20: "#FCF6CC",
+    Yellow10: "#FDFBE6",
+    },
+    dark: {
+    Yellow100: "#FDE10D",
+    Yellow90: "#F2DB33",
+    Yellow80: "#F3DF4D",
+    Yellow70: "#F7E97F",
+    Yellow60: "#F7E97F",
+    Yellow50: "#F7E981",
+    Yellow40: "#F8ED9A",
+    Yellow30: "#645907",
+    Yellow20: "#4B4304",
+    Yellow10: "#1A1A1A",
+    },
+    highContrastDark: {
+    Yellow100: "#FDE10D",
+    Yellow90: "#F2DB33",
+    Yellow80: "#F3DF4D",
+    Yellow70: "#F7E97F",
+    Yellow60: "#F7E97F",
+    Yellow50: "#F7E981",
+    Yellow40: "#F8ED9A",
+    Yellow30: "#645907",
+    Yellow20: "#4B4304",
+    Yellow10: "#1A1A1A",
+    },
+    };
+    const Red = {
+    light: {
+    Red100: "#DC3C31",
+    Red90: "#F44336",
+    Red80: "#F5564A",
+    Red70: "#F6695E",
+    Red60: "#F77B72",
+    Red50: "#F88E86",
+    Red40: "#FAA19B",
+    Red30: "#FBB4AF",
+    Red20: "#FCC7C3",
+    Red10: "#FDD9D7",
+    },
+    highContrastLight: {
+    Red100: "#DC3C31",
+    Red90: "#F44336",
+    Red80: "#F5564A",
+    Red70: "#F6695E",
+    Red60: "#F77B72",
+    Red50: "#F88E86",
+    Red40: "#FAA19B",
+    Red30: "#FBB4AF",
+    Red20: "#FCC7C3",
+    Red10: "#FDD9D7",
+    },
+    dark: {
+    Red100: "#FAA19B",
+    Red90: "#F88E86",
+    Red80: "#F77B72",
+    Red70: "#F77F76",
+    Red60: "#F66C62",
+    Red50: "#F5594E",
+    Red40: "#E05147",
+    Red30: "#680C05",
+    Red20: "#540A04",
+    Red10: "#400603",
+    },
+    highContrastDark: {
+    Red100: "#FAA19B",
+    Red90: "#F88E86",
+    Red80: "#F77B72",
+    Red70: "#F77F76",
+    Red60: "#F66C62",
+    Red50: "#F5594E",
+    Red40: "#E05147",
+    Red30: "#680C05",
+    Red20: "#540A04",
+    Red10: "#400603",
+    },
+    };
+    const Grey = {
+    light: {
+    Grey100: "#19191D",
+    Grey90: "#282727",
+    Grey80: "#47474A",
+    Grey70: "#5E5E61",
+    Grey60: "#757577",
+    Grey50: "#8C8C8E",
+    Grey40: "#A3A3A5",
+    Grey30: "#BABABB",
+    Grey20: "#D1D1D2",
+    Grey15: "#D8D8D8",
+    Grey10: "#E8E8E8",
+    Grey5: "#F8F8F8",
+    Grey1: "#FCFCFC",
+    },
+    highContrastLight: {
+    Grey100: "#141416",
+    Grey90: "#141416",
+    Grey80: "#19191D",
+    Grey70: "#5E5E61",
+    Grey60: "#5E5E61",
+    Grey50: "#5E5E61",
+    Grey40: "#A3A3A5",
+    Grey30: "#A3A3A5",
+    Grey20: "#D1D1D2",
+    Grey15: "#D1D1D2",
+    Grey10: "#D1D1D2",
+    Grey5: "#FCFCFC",
+    Grey1: "#FCFCFC",
+    },
+    dark: {
+    Grey100: "#F8F8F8",
+    Grey90: "#E8E8E8",
+    Grey80: "#D8D8D8",
+    Grey70: "#D1D1D2",
+    Grey60: "#BABABB",
+    Grey50: "#A3A3A5",
+    Grey40: "#8C8C8E",
+    Grey30: "#757577",
+    Grey20: "#5E5E61",
+    Grey15: "#47474A",
+    Grey10: "#282727",
+    Grey5: "#19191D",
+    Grey1: "#141416",
+    },
+    highContrastDark: {
+    Grey100: "#FCFCFC",
+    Grey90: "#FCFCFC",
+    Grey80: "#F8F8F8",
+    Grey70: "#F8F8F8",
+    Grey60: "#D1D1D2",
+    Grey50: "#D1D1D2",
+    Grey40: "#A3A3A5",
+    Grey30: "#A3A3A5",
+    Grey20: "#5E5E61",
+    Grey15: "#5E5E61",
+    Grey10: "#5E5E61",
+    Grey5: "#141416",
+    Grey1: "#141416",
+    },
+    };
+    const BackgroundTransparency = {
+    light: {
+    BackgroundTransparency40: "#47474A66",
+    BackgroundTransparency30: "#47474A4D",
+    BackgroundTransparency20: "#47474A33",
+    BackgroundTransparency10: "#47474A1A",
+    },
+    highContrastLight: {
+    BackgroundTransparency40: "#47474A66",
+    BackgroundTransparency30: "#47474A4D",
+    BackgroundTransparency20: "#47474A33",
+    BackgroundTransparency10: "#47474A1A",
+    },
+    dark: {
+    BackgroundTransparency40: "#47474A1A",
+    BackgroundTransparency30: "#47474A33",
+    BackgroundTransparency20: "#47474A4D",
+    BackgroundTransparency10: "#47474A66",
+    },
+    highContrastDark: {
+    BackgroundTransparency40: "#47474A1A",
+    BackgroundTransparency30: "#47474A33",
+    BackgroundTransparency20: "#47474A4D",
+    BackgroundTransparency10: "#47474A66",
+    },
+    };
+    const Facebook = {
+    light: {
+    Facebook100: "#3B5998",
+    },
+    highContrastLight: {
+    Facebook100: "#3B5998",
+    },
+    dark: {
+    Facebook100: "#3B5998",
+    },
+    highContrastDark: {
+    Facebook100: "#3B5998",
+    },
+    };
+    const White = {
+    light: {
+    White: "#FFF",
+    },
+    highContrastLight: {
+    White: "#FFF",
+    },
+    dark: {
+    White: "#0D0D0D",
+    },
+    highContrastDark: {
+    White: "#0D0D0D",
+    },
+    };
+    const Colors = {
+  light: {
+    ...Primary.light,
+    ...Secondary.light,
+    ...Green.light,
+    ...Yellow.light,
+    ...Red.light,
+    ...Grey.light,
+    ...BackgroundTransparency.light,
+    ...Facebook.light,
+    ...White.light,
+    title: "#FFFFFF",
+    heading: "#282727",
+    content: "#949494",
+    mainBg: "#FFFFFF",
+    contentBg: "#F8F8F9",
+    headerBg: "#F47521",
+    menuBg: "#FFFFFF",
+    iconPrimary: "#282727",
+    iconSecondary: "#F47521",
+    btnPrimary: "#F47521",
+    btnSecondary: "#FFF",
+    placeholder: "#C4C4C4",
+    input: "#FFF",
+    black: "#282727",
+    white: "#FFFFFF",
+    grey: "#C4C4C4",
+    primary: "#F47521",
+  },
+  dark: {
+    ...Primary.dark,
+    ...Secondary.dark,
+    ...Green.dark,
+    ...Yellow.dark,
+    ...Red.dark,
+    ...Grey.dark,
+    ...BackgroundTransparency.dark,
+    ...Facebook.dark,
+    ...White.dark,
+    title: "#FFFFFF",
+    heading: "#FFFFFF",
+    content: "#FFFFFF",
+    mainBg: "#1f2842",
+    contentBg: "#1f2842",
+    headerBg: "#F47521",
+    menuBg: "#171d2e",
+    iconPrimary: "#FFFFFF",
+    iconSecondary: "#F47521",
+    btnPrimary: "#F47521",
+    btnSecondary: "#FFF",
+    input: "#FFF",
+    black: "#282727",
+    white: "#FFFFFF",
+    grey: "#C4C4C4",
+    primary: "#F47521",
+  },
+  highContrastLight: {
+    ...Primary.highContrastLight,
+    ...Secondary.highContrastLight,
+    ...Green.highContrastLight,
+    ...Yellow.highContrastLight,
+    ...Red.highContrastLight,
+    ...Grey.highContrastLight,
+    ...BackgroundTransparency.highContrastLight,
+    ...Facebook.highContrastLight,
+    ...White.highContrastLight,
+    title: "#FFFFFF",
+    heading: "#FFFFFF",
+    content: "#FFFFFF",
+    mainBg: "#1f2842",
+    contentBg: "#1f2842",
+    headerBg: "#F47521",
+    menuBg: "#171d2e",
+    iconPrimary: "#FFFFFF",
+    iconSecondary: "#F47521",
+    btnPrimary: "#F47521",
+    btnSecondary: "#FFF",
+    input: "#FFF",
+    black: "#282727",
+    white: "#FFFFFF",
+    grey: "#C4C4C4",
+    primary: "#F47521",
+  },
+  highContrastDark: {
+    ...Primary.highContrastDark,
+    ...Secondary.highContrastDark,
+    ...Green.highContrastDark,
+    ...Yellow.highContrastDark,
+    ...Red.highContrastDark,
+    ...Grey.highContrastDark,
+    ...BackgroundTransparency.highContrastDark,
+    ...Facebook.highContrastDark,
+    ...White.highContrastDark,
+    title: "#FFFFFF",
+    heading: "#FFFFFF",
+    content: "#FFFFFF",
+    mainBg: "#1f2842",
+    contentBg: "#1f2842",
+    headerBg: "#F47521",
+    menuBg: "#171d2e",
+    iconPrimary: "#FFFFFF",
+    iconSecondary: "#F47521",
+    btnPrimary: "#F47521",
+    btnSecondary: "#FFF",
+    input: "#FFF",
+    black: "#282727",
+    white: "#FFFFFF",
+    grey: "#C4C4C4",
+    primary: "#F47521",
+  }};
+  export default Colors;
+`}
+/>
+
+<a name="theme_object" />
+
+## Obiekt Theme
+
+Powyżej został stworzony obiekt Colors zawierający wszystkie potrzebne kolory.
+Teraz należy dodać obiekt Colors do theme, aby kolory były dostępne globalnie
+w calym styled-components. Tutaj przedstawię po krótce jak to utworzyć. Nie będę
+pokazywał jak stworzyć providera. To możecie znaleźć na stronie styled-components.com.
+W pliku theme.ts tworzymy:
+
+<Source
+  language="js"
+  format={true}
+  code={`
+    import Colors from "./colors.styled";
+    const setMode = (mode) => {
+    if (["light", "dark"].includes(mode)) return mode;
+    return "light";
+    };
+    export const createTheme = (mode = "light") => {
+      const validMode = setMode(mode);
+      return {
+        palette: Colors[validMode],
+      };
+    };
+    export default createTheme;
+`}
+/>
+
+Następnie wartość z funkcji createTheme dodajemy do providera.
+Na przykład tak jak w przykładzie poniżej
+
+<Source
+  language="jsx"
+  format={true}
+  code={`
+    ...
+    const theme = createTheme(cookie?.mode, cookie?.isHighContrast === "true");
+    ...
+    <ThemeProvider theme={theme}>
+    ...
+    </ThemeProvider>
+    ...
+`}
+/>
