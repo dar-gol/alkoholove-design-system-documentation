@@ -1,0 +1,509 @@
+import { Meta, Source } from "@storybook/addon-docs";
+
+import { dedent } from "ts-dedent";
+
+<Meta title="Ikony" />
+
+<style>
+  {`
+  .icons-container * {
+    font-family: Roboto;
+  }
+  .icons-container {
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+  }
+  .icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 20px 0;
+    background: white;
+  }
+  .icon {
+    padding-bottom: 20px;
+  }
+  .icon:before {
+    color: #F47521;
+    font-size: 32px;
+    text-align: center;
+  }
+  .icon-name {
+    padding-bottom: 1px;
+  }
+  .icon-name span {
+    color: #47474A;
+    font-size: 16px;
+  }
+  .icon-desc span {
+    color: #8C8C8E;
+    font-size: 14px;
+  }
+`}
+</style>
+
+# Jak używać Ikon
+
+Aby użyć ikony należy pobrać paczkę i załączyć plik: style.css
+do index.html. Następnie wykorzystac klasy zawarte w style.css.
+Przykład użycia:
+
+<Source
+  language="css"
+  format={true}
+  code={`
+    <span class="icon-Beer" />
+  `}
+/>
+
+# Zestaw ikon
+
+<div class="icons-container">
+  <div class="icon-wrapper">
+    <span class="icon icon-Chevron-Down" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Chevron-Down</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Strzałka w dół</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Chevron-Left" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Chevron-Left</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Strzałka w lewo</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Chevron-Right" />
+    <div class="icon-name">
+      <span>Nazwa: Strzałka w prawo</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: ikonka piwa</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Chevron-Top" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Chevron-Top</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Strzałka w górę</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Add-Alcohol" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Add-Alcohol</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Dodawanie alkoholu</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Beer" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Beer</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Piwo</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Accessibility" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Accessibility</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Dostępność</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Action" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Action</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Akcja</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Add-Category" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Add-Category</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Dodawanie kategorii</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Bell" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Bell</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Notyfikacje</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Bottle" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Bottle</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Butelka alkoholu</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Camera" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Camera</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Aparat</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Category" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Category</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Kategoria</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Color" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Color</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Kolor</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Dashboard" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Dashboard</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Panel</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Error" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Error</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Błąd (ostrzegawczy)</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Exit-1" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Exit-1</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Wyjście (wersja 2.)</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Exit" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Exit</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Wyjście (wersja 1.)</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Flagged_comment" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Flagged_comment</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Oflagowane komentarze</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Food" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Food</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: jedzenie</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Globe" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Globe</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Globus</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Heart" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Heart</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Serce (ulubione)</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-House" />
+    <div class="icon-name">
+      <span>Nazwa: icon-House</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Dom (strona głowna)</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Info" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Info</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Informacja</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Information" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Information</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Informacja</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Lists" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Lists</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Listy</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Login" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Login</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Logowanie</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Mail" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Mail</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Mailing</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Manufacturer" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Manufacturer</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Producent</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-More" />
+    <div class="icon-name">
+      <span>Nazwa: icon-More</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Więcej</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-night" />
+    <div class="icon-name">
+      <span>Nazwa: icon-night</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Tryb nocny</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Password" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Password</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Hasło</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Profil" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Profil</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Profil</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Plus" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Plus</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Plus</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Rate" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Rate</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Ocena</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Recomendation" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Recomendation</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Rekomendacje</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Search" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Search</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Lupa</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Recomendation" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Recomendation</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Rekomendacje</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-SearchList" />
+    <div class="icon-name">
+      <span>Nazwa: icon-SearchList</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Filtrowanie komentarzy</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Settings" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Settings</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Ustawienia</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Social" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Social</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Społeczność</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Star" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Star</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Gwiazdka</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Success-1" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Success-1</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Sukces (wersja 3.)</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Success-2" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Success-2</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Sukces (wersja 2.)</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Success" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Success</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Sukces (wersja 1.)</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Suggestion" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Suggestion</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Sugestia</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-sun" />
+    <div class="icon-name">
+      <span>Nazwa: icon-sun</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Tryb light</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Tag" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Tag</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Tag</span>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <span class="icon icon-Wine" />
+    <div class="icon-name">
+      <span>Nazwa: icon-Wine</span>
+    </div>
+    <div class="icon-desc">
+      <span>Opis: Wino</span>
+    </div>
+  </div>
+</div>

@@ -70,7 +70,7 @@ zwracał większą uwagę zalecamy zastosować szerokość 200px lub 240px.
       description:
         "Ikonka do pływającego przycisku. Wszystkie ikonki z zestawu ikonek mogą być używane.",
       control: "select",
-      options: ["icon-beer", "icon-Camera", "icon-Error", "icon-Profil"],
+      options: ["icon-Beer", "icon-Camera", "icon-Error", "icon-Profil"],
       table: {
         type: {
           summary: "string",

@@ -1,0 +1,231 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?ib0s5b');
+  src:  url('../fonts/icomoon.eot?ib0s5b#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?ib0s5b') format('truetype'),
+    url('../fonts/icomoon.woff?ib0s5b') format('woff'),
+    url('../fonts/icomoon.svg?ib0s5b#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Chevron-Down:before {
+  content: "\e906";
+  color: #fff;
+}
+.icon-Chevron-Left:before {
+  content: "\e907";
+  color: #fff;
+}
+.icon-Chevron-Right:before {
+  content: "\e908";
+  color: #fff;
+}
+.icon-Chevron-Top:before {
+  content: "\e909";
+  color: #fff;
+}
+.icon-Add-Alcohol:before {
+  content: "\e900";
+  color: #fff;
+}
+.icon-Beer:before {
+  content: "\e905";
+  color: #fff;
+}
+.icon-Accessibility:before {
+  content: "\e901";
+  color: #fff;
+}
+.icon-Action:before {
+  content: "\e902";
+  color: #fff;
+}
+.icon-Add-Category:before {
+  content: "\e904";
+  color: #fff;
+}
+.icon-Bell:before {
+  content: "\e92e";
+  color: #fff;
+}
+.icon-Bottle:before {
+  content: "\e92f";
+  color: #fff;
+}
+.icon-Camera:before {
+  content: "\e930";
+  color: #fff;
+}
+.icon-CameraSmall:before {
+  content: "\e931";
+  color: #fff;
+}
+.icon-Category:before {
+  content: "\e932";
+  color: #fff;
+}
+.icon-Color:before {
+  content: "\e937";
+  color: #fff;
+}
+.icon-Dashboard:before {
+  content: "\e938";
+  color: #fff;
+}
+.icon-Error:before {
+  content: "\e939";
+  color: #fff;
+}
+.icon-Exit-1:before {
+  content: "\e93a";
+  color: #fff;
+}
+.icon-Exit:before {
+  content: "\e93b";
+  color: #fff;
+}
+.icon-Facebook:before {
+  content: "\e93c";
+  color: #fff;
+}
+.icon-Flagged_comment:before {
+  content: "\e93d";
+  color: #fff;
+}
+.icon-Food:before {
+  content: "\e93e";
+  color: #fff;
+}
+.icon-Globe:before {
+  content: "\e93f";
+  color: #fff;
+}
+.icon-Google:before {
+  content: "\e940";
+  color: #fff;
+}
+.icon-Heart:before {
+  content: "\e941";
+  color: #fff;
+}
+.icon-House:before {
+  content: "\e942";
+  color: #fff;
+}
+.icon-Info:before {
+  content: "\e944";
+  color: #fff;
+}
+.icon-Information:before {
+  content: "\e945";
+  color: #fff;
+}
+.icon-Lists:before {
+  content: "\e946";
+  color: #fff;
+}
+.icon-Login:before {
+  content: "\e947";
+  color: #fff;
+}
+.icon-Mail:before {
+  content: "\e948";
+  color: #fff;
+}
+.icon-Manufacturer:before {
+  content: "\e949";
+  color: #fff;
+}
+.icon-More:before {
+  content: "\e94a";
+  color: #fff;
+}
+.icon-night:before {
+  content: "\e94b";
+  color: #fff;
+}
+.icon-Password:before {
+  content: "\e94c";
+  color: #fff;
+}
+.icon-Plus:before {
+  content: "\e94e";
+  color: #fff;
+}
+.icon-Profil:before {
+  content: "\e94f";
+  color: #fff;
+}
+.icon-Rate:before {
+  content: "\e950";
+  color: #fff;
+}
+.icon-Recomendation:before {
+  content: "\e951";
+  color: #fff;
+}
+.icon-Search:before {
+  content: "\e953";
+  color: #fff;
+}
+.icon-SearchList:before {
+  content: "\e954";
+  color: #fff;
+}
+.icon-Settings:before {
+  content: "\e955";
+  color: #fff;
+}
+.icon-Social:before {
+  content: "\e956";
+  color: #fff;
+}
+.icon-Star:before {
+  content: "\e958";
+  color: #fff;
+}
+.icon-Success-1:before {
+  content: "\e959";
+  color: #f47521;
+}
+.icon-Success-2:before {
+  content: "\e95a";
+  color: #fff;
+}
+.icon-Success:before {
+  content: "\e95b";
+  color: #fff;
+}
+.icon-Suggestion:before {
+  content: "\e95c";
+  color: #fff;
+}
+.icon-sun:before {
+  content: "\e95d";
+  color: #fff;
+}
+.icon-Tag:before {
+  content: "\e95e";
+  color: #fff;
+}
+.icon-Wine:before {
+  content: "\e95f";
+  color: #fff;
+}
