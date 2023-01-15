@@ -1,25 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Col, Row } from "../../styles/global.styled";
-import {
-  CheckBoxContainer,
-  Container,
-  Icon,
-  IconWrapper,
-  Indicator,
-  Text,
-} from "./CheckBox.styled";
+import { useTheme } from "styled-components";
+import { Icon } from "../../styles/global.styled";
 
-export const Checkbox = ({
-  leftIcon,
-  rightIcon,
-  leftColor,
-  rightColor,
-  backgroundColor,
-  title,
-  ...rest
-}) => {
-  const [value, setValue] = useState(false);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+import { CheckBoxWrapper, Container, Text } from "./CheckBox.styled";
+
+const CheckBox: React.FC = ({ backgroundColor, title, ...rest }) => {
+  const theme = useTheme();
+  const [value, setValue] = useState(false)
   const handleSpace = (e) => {
     if (
       e.code === "Space" &&
@@ -32,7 +19,7 @@ export const Checkbox = ({
     }
   };
   const handleKeyUp = useCallback(
-    (event) => {
+    (event: any) => {
       handleSpace(event);
     },
     [handleSpace]
@@ -45,33 +32,24 @@ export const Checkbox = ({
     };
   }, [handleKeyUp]);
   return (
-    <Row>
-      <Container
-        className={`checkBoxComponent${encodeURIComponent(title)}`}
-        color={backgroundColor}
-        {...rest}
-        onClick={() => setValue((prev) => !prev)}
-        role="checkbox"
-        title={title}
-        tabIndex={0}
-      >
-        <CheckBoxContainer
-          className={value ? "active" : ""}
-          height="40px"
-          width="74px"
-        >
-          <Indicator color={value ? rightColor : leftColor}>
-            <Icon className={value ? rightIcon || "" : leftIcon || ""} />
-          </Indicator>
-          <IconWrapper>
-            <Icon className={leftIcon || ""} />
-          </IconWrapper>
-          <IconWrapper>
-            <Icon className={rightIcon || ""} />
-          </IconWrapper>
-        </CheckBoxContainer>
-        {title && <Text>{title}</Text>}
-      </Container>
-    </Row>
+    <Container
+      className={`checkBoxComponent${encodeURIComponent(title)}`}
+      color={backgroundColor}
+      {...rest}
+      onClick={() => setValue(prev => !prev)}
+      role="checkbox"
+      title={title}
+      tabIndex={0}
+    >
+      <CheckBoxWrapper className={value ? "active" : ""}>
+        <Icon
+          visible={value}
+          className="icon-success"
+          color={theme.palette.Secondary60}
+        />
+      </CheckBoxWrapper>
+      {title && <Text>{title}</Text>}
+    </Container>
   );
 };
+export default CheckBox;

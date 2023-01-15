@@ -1,10 +1,10 @@
 import React from "react";
 
-import CheckBox from "./CheckBox";
+import Toggle from "./Toggle";
 
 export default {
-  title: "Pole typu CheckBox",
-  component: CheckBox,
+  title: "Pole typu Toggle",
+  component: Toggle,
   parameters: {
     docs: {
       description: {
@@ -75,10 +75,10 @@ innym przypadku należy korzystać z Checkbox.
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <CheckBox {...args} />;
+const Template = (args) => <Toggle {...args} />;
 
-export const checkBox = Template.bind({});
-checkBox.args = {
+export const toggle = Template.bind({});
+toggle.args = {
   leftIcon: "icon-sun",
   leftColor: "#F1DB35",
   rightIcon: "icon-night",

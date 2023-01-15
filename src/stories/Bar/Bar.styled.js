@@ -8,22 +8,6 @@ export const Container = styled(Row)`
   align-items: center;
   border-radius: 20px;
   background-color: ${({ color }) => color || "transparent"};
-  cursor: pointer;
-`;
-
-export const CheckBoxWrapper = styled(Row)`
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  min-width: 30px;
-  min-height: 30px;
-  background-color: ${({ theme }) => theme.palette.White};
-  border: 2px solid ${({ theme }) => theme.palette.Grey10};
-  transition: background-color 0.3s, border 0.3s;
-  &.active {
-    background-color: ${({ theme }) => theme.palette.Secondary30};
-    border: 2px solid ${({ theme }) => theme.palette.Secondary60};
-  }
 `;
 
 export const CheckBoxContainer = styled(Row)`
@@ -40,7 +24,6 @@ export const CheckBoxContainer = styled(Row)`
 `;
 
 export const Indicator = styled.div`
-    z-index: 1;
   height: 34px;
   width: 34px;
   position: absolute;
@@ -67,7 +50,6 @@ export const IconWrapper = styled(Row)`
 `;
 
 export const Icon = styled.span`
-  display: ${({ visible = true }) => (visible ? "block" : "none")};
   &:before {
     color: ${({ theme }) => theme.palette.Grey20};
     ${Heading5Large("bold")}
