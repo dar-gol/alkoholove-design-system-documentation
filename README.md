@@ -30,7 +30,7 @@ The design system includes several types of buttons: primary, secondary, and gho
 It includes components like the modal and toasty, which have their place in the system and are detailed described.
 
 ## Figma Link
-Explore and learn more about the design system in our [Figma](#https://www.figma.com/file/NAvk6VazW0k2m6l3Q3LpSB/Projekt-inzynierski?type=design&node-id=49-28&mode=design&t=UBQIucxsxeetsoe9-0).
+Explore and learn more about the design system in our [Figma](https://www.figma.com/file/NAvk6VazW0k2m6l3Q3LpSB/Projekt-inzynierski?type=design&node-id=49-28&mode=design&t=UBQIucxsxeetsoe9-0).
 > This section is call to action to view our Figma design details.
 
 With a comprehensive Design System, Alkoholove not only provides a satisfying user experience but also serves as a pattern for future projects. Thanks to the application of the design system, no matter the project in our application, we will always maintain consistency.
