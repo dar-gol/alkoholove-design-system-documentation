@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Alkoholove - Design System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+- [Colors](#colors)
+- [Spaces](#spaces)
+- [Icons](#icons)
+- [Typography](#typography)
+- [Buttons](#buttons)
+- [Additional Elements](#additional-elements)
+- [Figma Link](#figma-link)
 
-## Available Scripts
+A Design System is a key component for any application or website. It provides consistency, continuity and uniformity of look and user experience across different platforms and devices. For Alkoholove, we have created a comprehensive Design System, with its main elements precisely described.
 
-In the project directory, you can run:
+## Colors
+All the colors to be used in the project are precisely specified in our design system. This ensures visual consistency and harmony.
 
-### `yarn start`
+## Spaces
+We have also defined spaces between elements, thereby ensuring the clarity and readability of our application.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Icons
+The design system also contains a library of icons that can be used across the platform.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Typography
+A fundamental element is typography - from H1 to footer. Each text element is precisely described in terms of when and how to use it, as well as predefined attributes such as color, line height, size, and font thickness.
 
-### `yarn test`
+## Buttons
+The design system includes several types of buttons: primary, secondary, and ghost. Each button has precisely described rules of use.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Additional Elements
+It includes components like the modal and toasty, which have their place in the system and are detailed described.
 
-### `yarn build`
+## Figma Link
+Explore and learn more about the design system in our [Figma](#https://www.figma.com/file/NAvk6VazW0k2m6l3Q3LpSB/Projekt-inzynierski?type=design&node-id=49-28&mode=design&t=UBQIucxsxeetsoe9-0).
+> This section is call to action to view our Figma design details.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+With a comprehensive Design System, Alkoholove not only provides a satisfying user experience but also serves as a pattern for future projects. Thanks to the application of the design system, no matter the project in our application, we will always maintain consistency.
